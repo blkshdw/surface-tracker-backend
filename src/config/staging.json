@@ -1,9 +1,9 @@
 {
   "database": {
-    "url": "postgres://localhost",
+    "url": "postgres://postgres:1234@localhost",
     "dbName": "surfacetracker"
   },
   "api": {
-    "port": 80
+    "port": 3899
   }
 }
