@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    if (req.body.bumps) {
+    if (req.body.bupms && req.body.hasOwnProperty('bumps')) {
         for (let bumpJSON of req.body.bumps) {
             console.log(bumpJSON);
             console.log(bumpJSON.acceleration);
@@ -46,7 +46,8 @@ router.post('/', async (req, res) => {
             const accelerationFields = {
                 x: acceleration.x,
                 y: acceleration.y,
-                z: acceleration.z
+                z: acceleration.z,
+                amplitude: acceleration.amplitude
             };
             const locationFields = {
                 latitude: location.latitude,
