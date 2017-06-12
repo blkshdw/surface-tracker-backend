@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    if (req.body.bupms && req.body.hasOwnProperty('bumps')) {
+    if (req.body.bumps && req.body.hasOwnProperty('bumps')) {
         for (let bumpJSON of req.body.bumps) {
             console.log(bumpJSON);
             console.log(bumpJSON.acceleration);
@@ -71,9 +71,10 @@ router.post('/', async (req, res) => {
                     include: [Bump.Acceleration, Bump.LocationCoordinate]
                 });
             }
-
-            res.send({});
         }
+        res.send({status: 'ok', response: {}});
+    } else {
+        res.send({status: 'error', response: '\'bumps\' array is missing'})
     }
 });
 
